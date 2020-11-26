@@ -23,6 +23,5 @@ int main(void)
 			break;
 		}
 	}
-	exit(stat_status);
-	return (0);
+	return (stat_status);
 }
