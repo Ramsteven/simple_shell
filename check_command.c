@@ -25,9 +25,10 @@ void prompt(void)
   * @array: get the input characters from the terminal.
   * @nread: the length of the characters from the array.
   * @stat_status: the status pass to the exit.
+  * @av: get the arguments from the first line of the terminal.
   * Return: nothing
   */
-void check_stat(char **array, ssize_t nread, int *stat_status)
+void check_stat(char **array, ssize_t nread, int *stat_status, char *av)
 {
 	pid_t pid = 0;
 	struct stat st;
@@ -56,16 +57,17 @@ void check_stat(char **array, ssize_t nread, int *stat_status)
 	else
 	{
 		/*aqui estaba el exit*/
-		manage_error(cont_array, nread, counter_procces);
+		manage_err(cont_array, nread, counter_procces, av);
 	}
 }
 /**
   * check_get_line - check for the if the pathname exist in the env path.
   * @array: get the input characters from the terminal.
   * @stat_status: the status pass to the exit.
+  * @av: get the arguments from the first line of the terminal
   * Return: the nread when is -1.
   */
-ssize_t check_get_line(char **array, int *stat_status)
+ssize_t check_get_line(char **array, int *stat_status, char *av)
 {
 	char *buffer = NULL, *token = NULL;
 	int i = 0, check_line = 0;
@@ -94,7 +96,7 @@ ssize_t check_get_line(char **array, int *stat_status)
 		if (check_built == false)
 		{
 			find_path(array, &nread, &x);
-			check_stat(array, nread, stat_status);
+			check_stat(array, nread, stat_status, av);
 		}
 		if (x == false && stat(array[0], &st) == 0)
 			free(array[0]);

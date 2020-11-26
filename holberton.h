@@ -17,13 +17,13 @@
 extern char **environ;
 
 /*manage error*/
-void manage_error(char *cont_array, ssize_t nread, int counter_procces);
+void manage_err(char *cont_array, ssize_t nread, int count_procces, char *av);
 
 /*check commnad*/
 void handler(int num);
 void prompt(void);
-void check_stat(char **array, ssize_t nread, int *stat_status);
-ssize_t check_get_line(char **array, int *stat_status);
+void check_stat(char **array, ssize_t nread, int *stat_status, char *av);
+ssize_t check_get_line(char **array, int *stat_status, char *av);
 
 
 /*auxiliar functions*/
@@ -38,7 +38,7 @@ void fix_token(char *token);
 void *_calloc(unsigned int nmemb, unsigned int size);
 void chek_isatty(int check_line);
 void _exit_built(char *array_0, char *buffer, int *stat_status);
-void find_path (char **array, ssize_t *nread, bool *x);
+void find_path(char **array, ssize_t *nread, bool *x);
 bool call_built_in(char **array, int *stat_status, char *buffer);
 
 /* inicialization functions */
