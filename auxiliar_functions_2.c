@@ -71,9 +71,9 @@ void find_path(char **array, ssize_t *nread, bool *x)
 {
 	int resta = 0;
 
-	if (array[0][0] == '/')
+	if (array[0][0] == '/' || array[0][0] == '.')
 		*x = true;
-	if ((array[0][0] != '/') && (length(array[0]) > 0))
+	if ((array[0][0] != '/' && array[0][0] != '.') && (length(array[0]) > 0))
 	{
 		*x = false;
 		resta = (length(array[0]));
@@ -94,6 +94,8 @@ bool call_built_in(char **array, int *stat_status, char *buffer)
 {
 	int compare_env = 5, compare_exit = 5;
 
+	if (environ != NULL)
+	{
 	compare_exit = _strcmp(array[0], "exit");
 	compare_env = _strcmp(array[0], "env");
 
@@ -103,8 +105,7 @@ bool call_built_in(char **array, int *stat_status, char *buffer)
 		{
 			free(buffer);
 			free(array);
-			exit(*stat_status);
-		}
+			exit(*stat_status); }
 		if (compare_env == 0)
 		{
 			int size_variable = 0, i = 0;
@@ -127,6 +128,8 @@ bool call_built_in(char **array, int *stat_status, char *buffer)
 			return (false);
 		}
 		return (true);
+	}
+	return (false);
 	}
 	return (false);
 }

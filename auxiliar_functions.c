@@ -62,6 +62,8 @@ ssize_t length(char *size)
 {
 	ssize_t index = 0;
 
+	if (!size)
+		return (0);
 	for (; size[index] != '\0'; index++)
 		;
 	return (index);

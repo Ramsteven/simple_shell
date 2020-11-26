@@ -98,9 +98,9 @@ ssize_t check_get_line(char **array, int *stat_status, char *av)
 			find_path(array, &nread, &x);
 			check_stat(array, nread, stat_status, av);
 		}
-		if (x == false && stat(array[0], &st) == 0)
-			free(array[0]);
-		chek_isatty(check_line);
+	if (x == false && stat(array[0], &st) == 0)
+		free(array[0]);
+	chek_isatty(check_line);
 	}
 	check_line = isatty(STDIN_FILENO);
 	if (check_line == 1)

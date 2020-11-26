@@ -12,6 +12,7 @@ int main(int ac, char **av)
 	int stat_status = 0, check_line = 0;
 	char **array = NULL;
 
+/*	environ = NULL;*/
 	array = malloc(BUFSIZ);
 	if (array == NULL)
 		return (0);
