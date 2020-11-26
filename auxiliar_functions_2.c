@@ -94,8 +94,6 @@ bool call_built_in(char **array, int *stat_status, char *buffer)
 {
 	int compare_env = 5, compare_exit = 5;
 
-	if (environ != NULL)
-	{
 	compare_exit = _strcmp(array[0], "exit");
 	compare_env = _strcmp(array[0], "env");
 
@@ -128,8 +126,6 @@ bool call_built_in(char **array, int *stat_status, char *buffer)
 			return (false);
 		}
 		return (true);
-	}
-	return (false);
 	}
 	return (false);
 }
