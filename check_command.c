@@ -27,11 +27,11 @@ void prompt(void)
   * @buffer: the buffer that contain the line of getline.
   * @stat_status: the status pass to the exit.
   */
-void check_stat(char **array, ssize_t nread, char  *buffer, int *stat_status)
+void check_stat(char **array, ssize_t nread, int *stat_status)
 {
 	pid_t pid = 0;
 	struct stat st;
-	int status = 0, str_cpm = 0;
+	int status = 0;
 	static int counter_procces;
 	char *cont_array = array[0];
 
@@ -55,14 +55,7 @@ void check_stat(char **array, ssize_t nread, char  *buffer, int *stat_status)
 	}
 	else
 	{
-		*stat_status = 127;
-		str_cpm = _strcmp(array[0], "exit");
-		if (str_cpm == 0)
-		{
-			free(buffer);
-			free(array);
-			exit(*stat_status);
-		}
+		/*aqui estaba el exit*/
 		manage_error(cont_array, nread, counter_procces);
 	}
 }
@@ -78,13 +71,12 @@ ssize_t check_get_line(char **array, int *stat_status)
 	int i = 0, check_line = 0;
 	size_t bytes = 0;
 	struct stat st;
-	ssize_t nread = 0, resta = 0;
+	ssize_t nread = 0;
 	const char *delim = " ";
-	bool x = true;
+	bool x = true, check_built = true;
 
-	chek_isatty(check_line);
 	while ((nread = getline(&buffer, &bytes, stdin)) != -1)
-	{ i = 0;
+	{ 	i = 0;
 		token = strtok(buffer, delim);
 		for (; token != NULL; i++)
 		{
@@ -93,18 +85,19 @@ ssize_t check_get_line(char **array, int *stat_status)
 		}
 		fix_token(array[i - 1]);
 		array[i] = NULL;
+
 		if (length(array[i - 1]) == 0 && i >= 2)
-			array[i - 1] = NULL;
-		if (array[0][0] == '/')
-			x = true;
-		if ((array[0][0] != '/') && (length(array[0]) > 0))
+				array[i - 1] = NULL;
+
+		check_built = call_built_in(array, stat_status, buffer);
+
+		if (check_built == false)
 		{
-			x = false;
-			resta = (length(array[0]));
-			array[0] = _which(array);
-			nread += (length(array[0]) + 1) - resta;
+			printf("aca entre");
+
+/*			find_path(array, &nread, &x);
+			check_stat(array, nread, stat_status);*/
 		}
-		check_stat(array, nread, buffer, stat_status);
 		if (x == false && stat(array[0], &st) == 0)
 			free(array[0]);
 		chek_isatty(check_line);

@@ -59,3 +59,60 @@ void chek_isatty(int check_line)
 	if (check_line == 1) /*check input */
 		prompt();
 }
+
+
+void find_path (char **array, ssize_t *nread, bool *x)
+{
+	int resta = 0;
+
+	if (array[0][0] == '/')
+		*x = true;
+	if ((array[0][0] != '/') && (length(array[0]) > 0))
+	{
+		*x = false;
+		resta = (length(array[0]));
+		array[0] = _which(array);
+		*nread += (length(array[0]) + 1) - resta;
+	}
+}
+
+bool call_built_in(char **array, int *stat_status, char *buffer)
+{
+	int compare_env = 5;
+	int compare_exit = 5;
+
+
+	compare_exit =_strcmp(array[0], "exit");
+
+	if (compare_exit == 0)
+	{
+
+		*stat_status = 127;
+		free(buffer);
+		free(array);
+		exit(*stat_status);
+	}
+
+	compare_env =_strcmp(array[0], "env");
+
+	if(compare_env == 0)
+	{
+		int size_variable = 0;
+		int i = 0;
+
+
+	while(environ[i] != NULL)
+		{
+
+			size_variable = length(environ[i]);
+			write(STDOUT_FILENO,environ[i],size_variable);
+			write(STDOUT_FILENO,"\n",1);
+			i++;
+		}
+
+	}
+	else
+		return (false);
+
+	return (true);
+}

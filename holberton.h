@@ -22,7 +22,7 @@ void manage_error(char *cont_array, ssize_t nread, int counter_procces);
 /*check commnad*/
 void handler(int num);
 void prompt(void);
-void check_stat(char **array, ssize_t nread, char *buffer, int *stat_status);
+void check_stat(char **array, ssize_t nread, int *stat_status);
 ssize_t check_get_line(char **array, int *stat_status);
 
 
@@ -33,11 +33,13 @@ int _strcmp(char *a, char *b);
 char *_itoa(int num, char *strnum);
 char *_strcpy(char *dest, char *src);
 
-/*auxiliar functions*/
+/*auxiliar functions2*/
 void fix_token(char *token);
 void *_calloc(unsigned int nmemb, unsigned int size);
 void chek_isatty(int check_line);
 void _exit_built(char *array_0, char *buffer, int *stat_status);
+void find_path (char **array, ssize_t *nread, bool *x);
+bool call_built_in(char **array, int *stat_status, char *buffer);
 
 /* inicialization functions */
 void ini_s(size_t *bytes, struct stat *st, ssize_t *nread, ssize_t *resta);
