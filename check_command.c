@@ -86,7 +86,6 @@ ssize_t check_get_line(char **array, int *stat_status)
 		}
 		fix_token(array[i - 1]);
 		array[i] = NULL;
-
 		if (length(array[i - 1]) == 0 && i >= 2)
 			array[i - 1] = NULL;
 
@@ -101,7 +100,9 @@ ssize_t check_get_line(char **array, int *stat_status)
 			free(array[0]);
 		chek_isatty(check_line);
 	}
-	write(STDOUT_FILENO, "\n", 1);
+	check_line = isatty(STDIN_FILENO);
+	if (check_line == 1)
+		write(STDOUT_FILENO, "\n", 1);
 	if (nread == -1)
 		free(buffer);
 	free(array);
