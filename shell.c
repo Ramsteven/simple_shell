@@ -4,18 +4,6 @@
   * Return: 0;
   **/
 
- //1. agarrar el av y el ac
- //2. enviarlo a get line
- //3. enviar a stat
- //4 manage error
-
-
- //built-in
- //1. env - exit
- //
- //
- //
-
 int main(void)
 {
 	ssize_t nread = 0;

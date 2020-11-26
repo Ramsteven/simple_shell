@@ -24,8 +24,8 @@ void prompt(void)
   * check_stat - check for the if the pathname exist in the env path.
   * @array: get the input characters from the terminal.
   * @nread: the length of the characters from the array.
-  * @buffer: the buffer that contain the line of getline.
   * @stat_status: the status pass to the exit.
+  * Return: nothing
   */
 void check_stat(char **array, ssize_t nread, int *stat_status)
 {
@@ -76,7 +76,8 @@ ssize_t check_get_line(char **array, int *stat_status)
 	bool x = true, check_built = true;
 
 	while ((nread = getline(&buffer, &bytes, stdin)) != -1)
-	{ 	i = 0;
+	{
+		i = 0;
 		token = strtok(buffer, delim);
 		for (; token != NULL; i++)
 		{
@@ -87,16 +88,14 @@ ssize_t check_get_line(char **array, int *stat_status)
 		array[i] = NULL;
 
 		if (length(array[i - 1]) == 0 && i >= 2)
-				array[i - 1] = NULL;
+			array[i - 1] = NULL;
 
 		check_built = call_built_in(array, stat_status, buffer);
 
 		if (check_built == false)
 		{
-			printf("aca entre");
-
-/*			find_path(array, &nread, &x);
-			check_stat(array, nread, stat_status);*/
+			find_path(array, &nread, &x);
+			check_stat(array, nread, stat_status);
 		}
 		if (x == false && stat(array[0], &st) == 0)
 			free(array[0]);
