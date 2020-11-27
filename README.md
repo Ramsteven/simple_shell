@@ -1,20 +1,22 @@
-# Kath and Dav's Shell  :computer:
+<h1 align= "center">Kath and Dav's Shell  :computer:</h1>
 
 <p align="center">
+<a href ="https://github.com/Ramsteven/simple_shell">
   <img width="300" height="300" src="https://automatedprogrammer.sh/wp-content/uploads/2018/05/Linux-Shell.png">
+  </a>
 </p>
 
-## Description 
+## Description  :computer:
 Kath and Dav's Shell is a simple UNIX command interpreter that replicates functionalities of the simple shell (sh). Additional functions are also included. This program was written entirely in C.
 
-## Installation
+## Installation :computer:
 Clone this repository into your working directory. For best results, files should be compiled with GCC and the following flags: -Wall -Wextra -Werror -pedantic -Wno-format.
 
 ```
 $ gcc -Wall -Werror -pedantic -o shell *c
 ```
 
-## Usage
+## Usage :computer:
 After compilation, the resulting program can run stand-alone, either in interactive or non-interactive mode.
 
 
@@ -37,11 +39,11 @@ Our shell has support for the following built-in commands:
 
 
 
-## Outside Programs
+## Outside Programs :computer:
 
 Our shell can run outside programs by typing their absolute paths (/bin/ls) or the executable name (ls), IF their directory is included in the PATH.
 
-### Examples
+### Examples :computer:
 
 ```sh
 katydav$ ls -l
