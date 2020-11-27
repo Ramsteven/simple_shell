@@ -1,8 +1,6 @@
 # Kath and Dav's Shell
 
-<div style="width: 50%; text-align:center;
-box-shadow: 1px 2px 47px 21px rgba(0,0,0,0.75);"
-><img src="https://automatedprogrammer.sh/wp-content/uploads/2018/05/Linux-Shell.png" /></div>
+![](https://automatedprogrammer.sh/wp-content/uploads/2018/05/Linux-Shell.png =100x200)
 
 
 ## Description 
@@ -39,7 +37,7 @@ Our shell has support for the following built-in commands:
 
 
 
-#### Outside Programs
+## Outside Programs
 
 Our shell can run outside programs by typing their absolute paths (/bin/ls) or the executable name (ls), IF their directory is included in the PATH.
 
@@ -62,9 +60,26 @@ katydav$ hello world
 ./hsh: 1: hello: not found
 ```
 
-### Included Files
+## Included Files
+
+#### - Files in the Repository 🖇️
+
+#|Directory|Description
+---|---|---
+1|[README.md](./README.md)| You are reading it
+2|[_which.c](./_which.c)| Function that allow iteration with enviorment variable.
+3|[auxiliar_functions.c](./auxiliar_functions.c)| Functions that allow change, count and manipulate the strings literals received of users
+4|[auxiliar_functions_2.c](./auxiliar_functions_2.c)| Function for manage built-ins commands.
+5|[check_command.c](./check_command.c)| Function that check and define  the command typed.
+6|[holberton.h](./holberton.h)| Header file with the structure and the prototypes of the functions
+7|[man_1_simple_shell](./man_1_simple_shell)| Man page of our function
+8|[manage_error.c](./manage_error.c)| Function that manage type command error.
+9|[shell.c](./shell.c)|Main function that read the all things works.
 
 
+## Credits
+
+All code written by [katgzco](https://github.com/katgzco) and [Ramsteven](https://github.com/Ramsteven).
 
 
 
