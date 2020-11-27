@@ -66,7 +66,6 @@ ssize_t length(char *size)
 		;
 	return (index);
 }
-
 /**
   *_itoa - copy two strings.
   * @num: the number to convert.
