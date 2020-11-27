@@ -1,4 +1,4 @@
-.Dd 16/4/20               \" DATE
+.Dd 27/11/20               \" DATE
 .Dt ./hsh 1      \" Program name and manual section number
 .Os KC-DO
 .Sh NAME                 \" Section Header - required - don't modify
