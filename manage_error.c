@@ -11,7 +11,7 @@ void manage_err(char *cont_array, ssize_t nread, int count_procces, char *av)
 	char *mensag = NULL;
 	char strnum[11];
 	int length_strum = 0, length_array = 0, mes_length = 0, length_av = 0;
-	int compare_ca = 0;
+
 
 	_itoa(count_procces, strnum);
 	length_strum = length(strnum);
@@ -22,8 +22,8 @@ void manage_err(char *cont_array, ssize_t nread, int count_procces, char *av)
 
 	if (mensag == NULL)
 		return;
-	compare_ca = _strcmp(cont_array, " ");
-	if (nread != 1 && compare_ca == 0)
+
+	if (nread != 1 && length(cont_array) > 0)
 	{
 		_strcat(mensag, av);
 		_strcat(mensag, ": ");
