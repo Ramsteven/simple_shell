@@ -1,5 +1,4 @@
 #include "holberton.h"
-
 /**
   *_calloc - function allocates memory for an array of
   *@nmemb: number of spaces to
@@ -23,8 +22,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	return (p);
 }
-
-
 /**
   * fix_token - solved fix tokens of path
   *@token: token receved
@@ -46,7 +43,6 @@ void fix_token(char *token)
 	token[i] = '\0';
 	free(change);
 }
-
 /**
   *chek_isatty- check if input is with pathline or keyboard
   *@check_line: value change with function isatty
@@ -59,7 +55,6 @@ void chek_isatty(int check_line)
 	if (check_line == 1) /*check input */
 		prompt();
 }
-
 /**
   *find_path- check if input is with pathline or keyboard
   *@array: value change with function isatty
@@ -81,7 +76,6 @@ void find_path(char **array, ssize_t *nread, bool *x)
 		*nread += (length(array[0]) + 1) - resta;
 	}
 }
-
 /**
   *call_built_in- check the input if is exit or env
   *@array: value change with function isatty
