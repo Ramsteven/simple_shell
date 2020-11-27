@@ -1,7 +1,8 @@
-# Kath and Dav's Shell
+# Kath and Dav's Shell  :computer:
 
-![](https://automatedprogrammer.sh/wp-content/uploads/2018/05/Linux-Shell.png =100x200)
-
+<p align="center">
+  <img width="300" height="300" src="https://automatedprogrammer.sh/wp-content/uploads/2018/05/Linux-Shell.png">
+</p>
 
 ## Description 
 Kath and Dav's Shell is a simple UNIX command interpreter that replicates functionalities of the simple shell (sh). Additional functions are also included. This program was written entirely in C.
@@ -21,7 +22,6 @@ After compilation, the resulting program can run stand-alone, either in interact
 ```
 simple_shell$ ./shell
 ```
-||
 
 ### Non-Interactive Mode
 ```
