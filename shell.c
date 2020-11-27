@@ -18,9 +18,7 @@ int main(int ac, char **av)
 		return (0);
 	/*signal */
 	signal(SIGINT, handler);
-	if (ac == 1)
-	{
-		while (1)
+		while (ac == 1)
 		{
 			chek_isatty(check_line);
 			nread = check_get_line(array, &stat_status, av[0]);
@@ -29,6 +27,5 @@ int main(int ac, char **av)
 				break;
 			}
 		}
-	}
 	return (stat_status);
 }
